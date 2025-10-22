@@ -3,7 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australian Business Data Visualization Dashboard</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Australian Business Analytics Dashboard | Real-Time Data Visualization</title>
+    <meta name="title" content="Australian Business Analytics Dashboard | Real-Time Data Visualization">
+    <meta name="description" content="Interactive data visualization dashboard showcasing Australian business analytics with real-time World Bank API integration. Explore GDP, unemployment, industry distribution, and state-by-state business insights.">
+    <meta name="keywords" content="Australian business data, data visualization, World Bank API, GDP analytics, business intelligence, Chart.js dashboard, economic indicators, interactive charts, Australian economy, business analytics">
+    <meta name="author" content="Bishal Shah">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bishalkshah.com.np/aus-biz-data-viz/">
+    <meta property="og:title" content="Australian Business Analytics Dashboard | Real-Time Data Visualization">
+    <meta property="og:description" content="Interactive data visualization dashboard showcasing Australian business analytics with real-time World Bank API integration. Explore GDP, unemployment, and industry insights.">
+    <meta property="og:image" content="https://bishalkshah.com.np/aus-biz-data-viz/preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bishalkshah.com.np/aus-biz-data-viz/">
+    <meta property="twitter:title" content="Australian Business Analytics Dashboard | Real-Time Data Visualization">
+    <meta property="twitter:description" content="Interactive data visualization dashboard showcasing Australian business analytics with real-time World Bank API integration.">
+    <meta property="twitter:image" content="https://bishalkshah.com.np/aus-biz-data-viz/preview.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bishalkshah.com.np/aus-biz-data-viz/">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Australian Business Analytics Dashboard",
+      "description": "Interactive data visualization dashboard showcasing Australian business analytics with real-time World Bank API integration",
+      "url": "https://bishalkshah.com.np/aus-biz-data-viz/",
+      "applicationCategory": "BusinessApplication",
+      "author": {
+        "@type": "Person",
+        "name": "Bishal Shah",
+        "url": "https://bishalkshah.com.np"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript. Modern browser recommended.",
+      "screenshot": "https://bishalkshah.com.np/aus-biz-data-viz/preview.png",
+      "featureList": [
+        "Real-time World Bank API integration",
+        "Interactive Chart.js visualizations",
+        "Australian economic indicators",
+        "State-by-state business analytics",
+        "Industry distribution analysis",
+        "PDF export functionality",
+        "Dark/Light theme toggle"
+      ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -16,78 +76,78 @@
             <span class="data-source-badge" id="dataSourceBadge">Source API: Loading...</span>
         </header>
 
-        <div id="errorMessage" class="error-message"></div>
+        <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
 
-        <div class="controls">
-            <button class="btn btn-primary" onclick="updateCharts()">Refresh Data</button>
-            <button class="btn btn-secondary" onclick="toggleTheme()">Toggle Theme</button>
-            <button class="btn btn-success" onclick="exportToPDF()">📄 Export PDF</button>
-        </div>
+        <nav class="controls" aria-label="Dashboard controls">
+            <button class="btn btn-primary" onclick="updateCharts()" aria-label="Refresh dashboard data">Refresh Data</button>
+            <button class="btn btn-secondary" onclick="toggleTheme()" aria-label="Toggle between light and dark theme">Toggle Theme</button>
+            <button class="btn btn-success" onclick="exportToPDF()" aria-label="Export dashboard as PDF">📄 Export PDF</button>
+        </nav>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon">📊</div>
+        <section class="stats-grid" aria-label="Key business metrics">
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">📊</div>
                 <div class="stat-content">
                     <h3 id="totalRevenue">$0M</h3>
                     <p>Total Revenue (AUD)</p>
                 </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">🏢</div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">🏢</div>
                 <div class="stat-content">
                     <h3 id="totalBusinesses">0</h3>
                     <p>Active Businesses</p>
                 </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">👥</div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">👥</div>
                 <div class="stat-content">
                     <h3 id="totalEmployees">0</h3>
                     <p>Total Employees</p>
                 </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">📈</div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">📈</div>
                 <div class="stat-content">
                     <h3 id="growthRate">0%</h3>
                     <p>YoY Growth</p>
                 </div>
-            </div>
-        </div>
+            </article>
+        </section>
 
-        <div class="charts-grid">
-            <div class="chart-container">
+        <main class="charts-grid" aria-label="Data visualizations">
+            <section class="chart-container">
                 <h2>Revenue by Australian State</h2>
-                <canvas id="stateRevenueChart"></canvas>
-            </div>
+                <canvas id="stateRevenueChart" aria-label="Bar chart showing revenue distribution across Australian states"></canvas>
+            </section>
 
-            <div class="chart-container">
+            <section class="chart-container">
                 <h2>Industry Distribution</h2>
-                <canvas id="industryPieChart"></canvas>
-            </div>
+                <canvas id="industryPieChart" aria-label="Pie chart displaying industry sector distribution"></canvas>
+            </section>
 
-            <div class="chart-container">
+            <section class="chart-container">
                 <h2>Quarterly Growth Trends (2024-2025)</h2>
-                <canvas id="quarterlyGrowthChart"></canvas>
-            </div>
+                <canvas id="quarterlyGrowthChart" aria-label="Line chart showing quarterly revenue and profit growth trends"></canvas>
+            </section>
 
-            <div class="chart-container">
+            <section class="chart-container">
                 <h2>Employment by Sector</h2>
-                <canvas id="employmentDoughnutChart"></canvas>
-            </div>
+                <canvas id="employmentDoughnutChart" aria-label="Doughnut chart showing employment distribution by sector"></canvas>
+            </section>
 
-            <div class="chart-container full-width">
+            <section class="chart-container full-width">
                 <h2>Monthly Business Performance</h2>
-                <canvas id="monthlyPerformanceChart"></canvas>
-            </div>
+                <canvas id="monthlyPerformanceChart" aria-label="Line chart comparing monthly performance across years"></canvas>
+            </section>
 
-            <div class="chart-container full-width">
+            <section class="chart-container full-width">
                 <h2>Top Australian Cities by Business Activity</h2>
-                <canvas id="citiesBarChart"></canvas>
-            </div>
-        </div>
+                <canvas id="citiesBarChart" aria-label="Horizontal bar chart ranking Australian cities by business count"></canvas>
+            </section>
+        </main>
 
-        <div class="info-card">
+        <aside class="info-card" role="complementary" aria-label="Data source information">
             <h3>📊 Data Source Information</h3>
             <p><strong>Intelligent API Fallback System:</strong></p>
             <ol>
@@ -95,7 +155,7 @@
                 <li><strong>Market Data API</strong> (Secondary) - Public stock market indices as business activity proxy</li>
                 <li><strong>Demo Data</strong> (Fallback) - Local demonstration data to always displays meaningful information</li>
             </ol>
-        </div>
+        </aside>
 
         <footer>
             <p class="data-note">

@@ -1,0 +1,8 @@
+# Robots.txt for Australian Business Analytics Dashboard
+# https://bishalkshah.com.np/aus-biz-data-viz/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bishalkshah.com.np/aus-biz-data-viz/sitemap.xml
