@@ -1,4 +1,4 @@
-# 🇦🇺 Australian Business Data Visualization Dashboard
+# Australian Business Data Visualization Dashboard
 
 An interactive data visualization dashboard showcasing Australian business analytics with multiple chart types and real-time data representation. Built as a portfolio project to develop skills in API and Data visualization.
 
@@ -220,11 +220,6 @@ The dashboard is fully responsive with breakpoints at:
 - **Mobile**: <768px (single column layout)
 
 
-
-## 👨‍💻 Author
-
-Created as a project skills developing project showcasing
-
 ## 🙏 Acknowledgments
 
 - **Chart.js** - For the excellent charting library
@@ -233,6 +228,10 @@ Created as a project skills developing project showcasing
 
 ---
 
+## 👨‍💻 Author
+
 **Portfolio Demo Project** | Built with ❤️ by Bishal as a skills improvement project
 
 *For more projects and information, visit my portfolio website* [here](https://bishalkshah.com.np)
+
+
