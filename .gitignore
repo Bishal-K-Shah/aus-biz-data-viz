@@ -1,0 +1,33 @@
+# Node modules (if you add any build tools later)
+node_modules/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build artifacts (if you add build process later)
+dist/
+build/
+
+# Environment files (not needed for this project, but good practice)
+.env
+.env.local
+.env.*.local
