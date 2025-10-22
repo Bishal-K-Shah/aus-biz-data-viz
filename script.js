@@ -1132,7 +1132,7 @@ function updateCharts() {
     setTimeout(() => {
         btn.textContent = originalText;
         btn.disabled = false;
-    }, 2000);
+    }, 3000);
 }
 
 // Toggle theme
@@ -1360,11 +1360,11 @@ window.addEventListener('load', () => {
     initCharts();
     initAustraliaMap();
     
-    // Show "Loading..." for 2 seconds before fetching API data
+    // Show "Loading..." for 3 seconds before fetching API data
     updateDataSourceBadge('Loading...');
     setTimeout(() => {
         fetchABSData();
-    }, 2000);
+    }, 3000);
 });
 
 // Handle window resize
