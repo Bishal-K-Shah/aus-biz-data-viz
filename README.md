@@ -230,7 +230,7 @@ The dashboard is fully responsive with breakpoints at:
 
 ## 👨‍💻 Author
 
-**Portfolio Demo Project** | Built with ❤️ by Bishal as a skills improvement project
+**Skill Development Project** | Built with ❤️ by Bishal Shah
 
 *For more projects and information, visit my portfolio website* [here](https://bishalkshah.com.np)
 
